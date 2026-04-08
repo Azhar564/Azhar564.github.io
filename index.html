@@ -1,92 +1,112 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Azhar Page</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body class="dark">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas"></canvas>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azhar Ramadhan Halim - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="hero">
+    <img src="assets/images/photo.png" alt="Profile Photo" class="profile-img" />
+
+    <h1>Azhar Ramadhan Halim</h1>
+    <p class="tagline">Unity Game Programmer • Steam Released Titles • AI & Systems Focus</p>
+    <p class="years">3+ Years in Game Development</p>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Unity game programmer with experience developing games for PC, WebGL, and Android.
+      I focus on gameplay systems, AI architecture, and building scalable tools inside Unity.
+      I have worked on shipped titles and enjoy designing modular and maintainable systems.
+    </p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Unity3D</li>
+      <li>C#</li>
+      <li>Game Architecture</li>
+      <li>AI Systems</li>
+      <li>Unity Editor Tools</li>
+      <li>URP</li>
+      <li>Git</li>
+      <li>VR Development</li>
+    </ul>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Dungeon Hotpot</h3>
+      <p>A story driven cooking in the dungeon style game, coming soon on Steam.</p>
+      <a href="https://store.steampowered.com/app/3333380/Dungeon_Hotpot/" target="_blank">View Project</a>
     </div>
-    <div id="loading-cover" style="display:none;">
-      <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
-        <div id="unity-progress-bar-empty" style="display: none;">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-        <div class="spinner"></div>
-      </div>
+
+    <div class="project">
+      <h3>House of Everlast</h3>
+      <p>2D platformer in haunted house, released demo on Steam.</p>
+      <a href="https://store.steampowered.com/app/2579680/House_of_Everlast/" target="_blank">View Project</a>
     </div>
-    <div id="unity-fullscreen-button" style="display: none;"></div>
-    <script>
-      const hideFullScreenButton = "true";
-      const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/Builds.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/Builds.data",
-        frameworkUrl: buildUrl + "/Builds.framework.js",
-        codeUrl: buildUrl + "/Builds.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Reafuse",
-        productName: "Azhar Page",
-        productVersion: "1.0.0",
-      };
 
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
+    <div class="project">
+      <h3>Let Me Out</h3>
+      <p>3D Horror game, Worked on Enemy AI system and some gameplay features. Released on Steam</p>
+      <a href="https://store.steampowered.com/app/1269520/Let_Me_Out/" target="_blank">View Project</a>
+    </div>
 
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
-        }
-        return false;
-      }());
+    <div class="project">
+      <h3>More Projects</h3>
+      <p>Collection of indie and experimental games.</p>
+      <a href="https://reafuse.itch.io/" target="_blank">View Itch.io</a>
+    </div>
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 2;
-      }
-      loadingCover.style.display = "";
+  </section>
 
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+  <section class="experience">
+    <h2>Experience</h2>
+
+    <div class="exp">
+      <h3>Co-Founder & Game Programmer</h3>
+      <p>Renala Games (2022 – Present)</p>
+      <p>Developed games for PC, WebGL, and Android. Focused on gameplay systems and technical architecture.</p>
+    </div>
+
+    <div class="exp">
+      <h3>Virtual Reality Developer (Intern)</h3>
+      <p>Aug – Nov 2024</p>
+      <p>Built VR safety simulation with 3C system and structured sequence system.</p>
+    </div>
+
+    <div class="exp">
+      <h3>Game Programmer (Intern)</h3>
+      <p>Jul – Sep 2022</p>
+      <p>Developed modular Enemy AI system and gameplay tools.</p>
+    </div>
+
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: azharramadhan7777@gmail.com</p>
+    <p>
+      <a href="https://reafuse.itch.io/" target="_blank">Itch.io</a>
+    </p>
+  </section>
+
+  <div class="spinner-container">
+    <canvas id="spinnerCanvas"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
