@@ -2,111 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azhar Ramadhan Halim - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azhar Ramadhan Halim — Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="hero">
-    <img src="assets/images/photo.png" alt="Profile Photo" class="profile-img" />
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
 
-    <h1>Azhar Ramadhan Halim</h1>
-    <p class="tagline">Unity Game Programmer • Unity VR Developer</p>
-    <p class="years">3+ Years in Game Development</p>
-  </header>
+  <div id="canvas-container"><canvas id="three-canvas"></canvas></div>
+  <canvas id="particles"></canvas>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a Unity game programmer with experience developing games for PC, WebGL, and Android.
-      I focus on gameplay systems, AI architecture, and building scalable tools inside Unity.
-      I have worked on shipped titles and enjoy designing modular and maintainable systems.
-    </p>
-  </section>
-
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Unity3D</li>
-      <li>C#</li>
-      <li>Game Architecture</li>
-      <li>AI Systems</li>
-      <li>Unity Editor Tools</li>
-      <li>URP</li>
-      <li>Git</li>
-      <li>VR Development</li>
-    </ul>
-  </section>
-
-  <section class="projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Dungeon Hotpot</h3>
-      <p>A story driven cooking in the dungeon style game, coming soon on Steam.</p>
-      <a href="https://store.steampowered.com/app/3333380/Dungeon_Hotpot/" target="_blank">View Project</a>
+  <div id="header">
+    <div>
+      <h1>AZHAR RAMADHAN HALIM</h1>
+      <span>C# & Unity Game Programmer</span>
     </div>
-
-    <div class="project">
-      <h3>House of Everlast</h3>
-      <p>2D platformer in haunted house, released demo on Steam.</p>
-      <a href="https://store.steampowered.com/app/2579680/House_of_Everlast/" target="_blank">View Project</a>
+    <div style="text-align:right; font-size:0.72rem; color:var(--muted); letter-spacing:0.15em;">
+      JAKARTA, ID<br>
+      <span style="color:var(--glow)">●</span> AVAILABLE
     </div>
-
-    <div class="project">
-      <h3>Let Me Out</h3>
-      <p>3D Horror game, Worked on Enemy AI system and some gameplay features. Released on Steam</p>
-      <a href="https://store.steampowered.com/app/1269520/Let_Me_Out/" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-      <h3>More Projects</h3>
-      <p>Collection of indie and experimental games.</p>
-      <a href="https://reafuse.itch.io/" target="_blank">View Itch.io</a>
-    </div>
-
-  </section>
-
-  <section class="experience">
-    <h2>Experience</h2>
-
-    <div class="exp">
-      <h3>Co-Founder & Game Programmer</h3>
-      <p>Renala Games (2022 – Present)</p>
-      <p>Developed games for PC, WebGL, and Android. Focused on gameplay systems and technical architecture.</p>
-    </div>
-
-    <div class="exp">
-      <h3>Virtual Reality Developer (Intern)</h3>
-      <p>Aug – Nov 2024</p>
-      <p>Built VR safety simulation with 3C system and structured sequence system.</p>
-    </div>
-
-    <div class="exp">
-      <h3>Game Programmer (Intern)</h3>
-      <p>Jul – Sep 2022</p>
-      <p>Developed modular Enemy AI system and gameplay tools.</p>
-    </div>
-
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: azharramadhan7777@gmail.com</p>
-    <p>
-      <a href="https://reafuse.itch.io/" target="_blank">Itch.io</a>
-    </p>
-  </section>
-
-  <div class="spinner-container">
-    <canvas id="spinnerCanvas"></canvas>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <div id="center-ui">
+    <div class="hero-image">
+      <img src="./assets/images/photo.png" />
+    </div>
+    <div class="hero-title">AZHAR RAMADHAN HALIM</div>
+    <div class="hero-sub">C# · Unity · VR · WebGL · Android</div>
+    <div class="water-buttons">
+      <button class="water-btn" id="btn-resume" onclick="openPanel('resume')">
+        <canvas id="wave-resume"></canvas>
+        <div class="water-btn-label">
+          <span class="icon">📄</span>
+          <span class="label-text">RESUME</span>
+          <span class="label-sub">Experience</span>
+        </div>
+      </button>
+      <button class="water-btn" id="btn-portfolio" onclick="openPanel('portfolio')">
+        <canvas id="wave-portfolio"></canvas>
+        <div class="water-btn-label">
+          <span class="icon">🎮</span>
+          <span class="label-text">PORTFOLIO</span>
+          <span class="label-sub">Projects</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div id="splash-overlay">
+    <canvas id="splash-canvas"></canvas>
+  </div>
+
+  <div id="panel">
+    <div class="panel-backdrop" onclick="closePanel()"></div>
+    <div class="panel-container">
+      <div class="panel-wave"></div>
+      <div class="panel-header">
+        <div class="panel-title" id="panel-title">Resume</div>
+        <button class="panel-close" onclick="closePanel()">✕</button>
+      </div>
+      <div class="panel-body" id="panel-body"></div>
+    </div>
+  </div>
+
+  <!-- External Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="script.js"></script>
+
 </body>
 
 </html>
